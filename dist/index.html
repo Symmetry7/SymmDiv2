@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYMMDiv2 | Codeforces Problem Selector</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="animate__animated animate__fadeInDown">
+            <div class="logo">
+                <span class="logo-symm">symm</span><span class="logo-div2">Div2</span>
+            </div>
+            <h1>Codeforces Problem Selector</h1>
+            <p class="subtitle">Sharpen your skills with Practicing  Div 2 problems</p>
+        </header>
+
+        <div class="controls animate__animated animate__fadeIn animate__delay-1s">
+            <div class="filter-group">
+                <div class="filter-item">
+                    <label for="problem-type">Problem Type</label>
+                    <div class="select-wrapper">
+                        <select id="problem-type">
+                            <option value="A">A (Easy)</option>
+                            <option value="B">B (Medium)</option>
+                            <option value="C">C (Hard)</option>
+                            <option value="random" selected>Random (A/B/C)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="filter-item">
+                    <label for="min-rating">Min Rating</label>
+                    <input type="number" id="min-rating" placeholder="800" min="800" max="3500">
+                </div>
+                
+                <div class="filter-item">
+                    <label for="max-rating">Max Rating</label>
+                    <input type="number" id="max-rating" placeholder="2000" min="800" max="3500">
+                </div>
+            </div>
+            
+            <button id="generate-btn" class="glow-on-hover">
+                <span class="btn-icon">🎯</span> Generate Problem
+            </button>
+        </div>
+
+        <div class="result-container animate__animated animate__fadeIn animate__delay-1s">
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>Loading problem database...</p>
+            </div>
+            <div id="problem-display" class="hidden">
+                <div class="problem-card">
+                    <div class="problem-header">
+                        <div class="problem-type-badge" id="problem-type-badge">A</div>
+                        <h2 id="problem-title"></h2>
+                        <div class="difficulty-meter">
+                            <div class="difficulty-bar" id="difficulty-bar"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="problem-meta">
+                        <span id="problem-contest"></span>
+                        <span id="problem-rating"></span>
+                    </div>
+                    
+                    <div class="problem-tags" id="problem-tags"></div>
+                    
+                    <div class="actions">
+                        <a id="problem-link" href="#" target="_blank" class="btn solve-btn">
+                            <span class="btn-icon">💻</span> Solve Problem
+                        </a>
+                        <button id="next-btn" class="btn next-btn">
+                            <span class="btn-icon">✨</span> Next Problem
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats animate__animated animate__fadeIn animate__delay-2s">
+            <div class="stat-item">
+                <div class="stat-icon">📚</div>
+                <span class="stat-value" id="total-problems">0</span>
+                <span class="stat-label">Total Problems</span>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">🔍</div>
+                <span class="stat-value" id="filtered-problems">0</span>
+                <span class="stat-label">Matching Filters</span>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">⚡</div>
+                <span class="stat-value" id="last-updated">Today</span>
+                <span class="stat-label">Last Updated</span>
+            </div>
+        </div>
+
+        <footer class="animate__animated animate__fadeIn animate__delay-2s">
+            <p>Made with ❤️ by symmetry</p>
+            <p class="credit">symmDiv2 © 2023 | Not affiliated with Codeforces</p>
+        </footer>
+    </div>
+  <footer class="animate__animated animate__fadeIn animate__delay-2s">
+    <div class="social-links">
+        <a href="https://www.linkedin.com/in/vinayak-tiwari-960976274/" target="_blank" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+            LinkedIn
+        </a>
+        <a href="https://www.instagram.com/symmv_09" target="_blank" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            Instagram
+        </a>
+    </div>
+   
+    
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
